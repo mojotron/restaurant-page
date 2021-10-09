@@ -1,5 +1,7 @@
 # Restaurant Page
 
+Webpack - loading fonts
+
 This project is part of The Odin Project Curriculum. Goal is to create
 simple restaurant site.
 
