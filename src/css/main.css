@@ -15,37 +15,95 @@ body {
   width: 100%;
 }
 /*HEADER*/
-.header {
+.header-wrapper {
+  z-index: 1;
   background-color: var(--dark-brown);
-  height: 70vh;
-  /* hero image https://unsplash.com/photos/24gR_9lCdes?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink*/
-  background-image: url('../images/ramen-image.jpg');
+  height: 120vh;
+  /* hero https://unsplash.com/photos/O0AsEdqEzPQ?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink*/
+  background-image: url('../images/ramen-hero.jpg');
   background-size: cover;
   background-position: center center;
+  margin-top: -2rem;
+}
+.header {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .main-heading {
-  font-size: 4rem;
-  color: var(--light-brown);
+  text-transform: uppercase;
+  font-size: 6rem;
+  color: #fff;
+  text-align: center;
+}
+.heading-address {
+  text-align: center;
+  color: #fff;
+  font-size: 1.3rem;
 }
 /*Nav bar*/
 .nav-bar {
-  background-color: rgb(243, 231, 231);
+  position: absolute;
+  width: 75%;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
   display: flex;
-  align-items: baseline;
+  align-items: center;
+  justify-content: space-between;
 }
 .nav-bar-list {
+  width: 50%;
   display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 .nav-list-item {
   padding: 0 0.2rem;
   cursor: pointer;
-  color: var(--light-brown);
+  color: #fff;
   font-size: 1.5rem;
 }
 .nav-list-item:hover {
   text-decoration: underline;
 }
+.btn-order {
+  font-family: inherit;
+  text-transform: uppercase;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1.3rem;
+  border-radius: 0.3rem;
+  background-color: #ba5536;
+  color: #fff;
+  transition: background-color 1s;
+  cursor: pointer;
+}
+.btn-order:hover {
+  background-color: #a10000;
+}
+/*logo*/
+.logo {
+  height: 6rem;
+  width: 6rem;
+  border: 3px solid black;
+  border-radius: 100%;
+  background-color: #a10000;
+  background-image: url('../images/logo.jpeg');
+  background-position: center center;
+  background-size: 4rem 4rem;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
 
 /*tab*/
 .tab-display {
+}
+/* image https://unsplash.com/photos/24gR_9lCdes?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink*/
+/*FOOTER*/
+.footer {
+  height: 75vh;
+  background-color: var(--light-brown);
 }
