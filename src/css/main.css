@@ -70,6 +70,8 @@ body {
   text-decoration: underline;
 }
 .btn-order {
+  width: 10rem;
+  height: 3rem;
   font-family: inherit;
   text-transform: uppercase;
   border: none;
@@ -99,11 +101,83 @@ body {
 }
 
 /*tab*/
-.tab-display {
-}
 /* image https://unsplash.com/photos/24gR_9lCdes?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink*/
+/*https://unsplash.com/photos/JCHlsKSgbSk?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink*/
 /*FOOTER*/
 .footer {
-  height: 75vh;
-  background-color: var(--light-brown);
+  height: 30vh;
+  background-color: rgb(73, 53, 53);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding-top: 5rem;
+}
+.social-icons {
+  display: flex;
+  justify-content: space-between;
+  min-width: 10rem;
+}
+.social-link {
+  height: 1.5rem;
+  width: 1.5rem;
+  padding: 0.3rem;
+  border-radius: 100%;
+  background-color: cornsilk;
+}
+/*bowls display*/
+.bowls-display {
+  background-color: #851400;
+  background-image: url('https://www.transparenttextures.com/patterns/brick-wall.png');
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  min-height: 100vh;
+  width: 100%;
+  /* background-color: #f07b57; */
+}
+.bowls-title {
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  font-size: 5rem;
+}
+.bowl-items-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 75%;
+  margin: 0 auto;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.bowl-item {
+  box-sizing: border-box;
+  min-height: 15rem;
+  width: 25rem;
+  padding: 1rem;
+  margin: 1rem;
+}
+.bowl-item-title {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  color: #eee;
+}
+.bowl-item-price {
+  font-size: 1.7rem;
+  color: #efefef;
+}
+.bowl-toppings {
+  font-size: 1.4rem;
+  color: #fcfcfc;
+}
+.bowl-item-topping {
+  font-size: 1.1rem;
+  color: #fbfbfb;
+}
+
+/*banner*/
+.banner {
+  height: 15rem;
+  background-color: var(--dark-brown);
+  background-image: url('../images/ramen-kitchen.jpg');
+  background-size: cover;
+  background-position: 50% 76%;
+  opacity: 0.8;
 }
