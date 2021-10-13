@@ -118,11 +118,15 @@ body {
   min-width: 10rem;
 }
 .social-link {
-  height: 1.5rem;
-  width: 1.5rem;
+  font-size: 2rem;
   padding: 0.3rem;
   border-radius: 100%;
-  background-color: cornsilk;
+  color: var(--light-orange);
+  cursor: pointer;
+  transition: color 1s;
+}
+.social-link:hover {
+  color: white;
 }
 /*bowls display*/
 .bowls-display {
