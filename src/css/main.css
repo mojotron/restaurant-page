@@ -42,6 +42,7 @@ body {
   color: #fff;
   font-size: 1.3rem;
 }
+/*******************************************************/
 /*Nav bar*/
 .nav-bar {
   position: absolute;
@@ -86,6 +87,7 @@ body {
 .btn-order:hover {
   background-color: #a10000;
 }
+/*****************************************/
 /*logo*/
 .logo {
   height: 6rem;

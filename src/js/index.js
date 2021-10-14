@@ -10,4 +10,9 @@ dom.i2svg();
 import '../css/reset.css';
 import '../css/main.css';
 
-alert('hello');
+import * as model from './model.js';
+import navBarView from './views/nav-bar-view.js';
+
+//Create nav bar
+const mainWrapper = document.querySelector('.main-wrapper');
+mainWrapper.insertAdjacentHTML('afterbegin', navBarView.getHtml());
