@@ -1,7 +1,10 @@
+import { faCreativeCommonsPd } from '@fortawesome/free-brands-svg-icons';
+
 export const state = {
   restaurantName: 'mojo ramen',
   address: 'Ul. Vice Vukova 6, 10020, Zagreb, Croatia',
   info: 'Arena Centar Mall, inside food corner',
+  socialMedia: ['instagram', 'twitter', 'facebook'],
   recipes: [
     {
       title: 'Miso',
@@ -21,7 +24,7 @@ export const state = {
       toppings: [
         'chicken dashi',
         'reserved shiitake mushrooms',
-        'Ramen Egg (Ajitsuke Tamago) ',
+        'Ramen Egg (Ajitsuke Tamago)',
         'tare',
         'slices chashu',
         'nitamago',
@@ -50,6 +53,20 @@ export const state = {
         'coriander',
         'peanuts',
         'nori or dried chilli',
+      ],
+    },
+    {
+      title: 'Spicy',
+      price: 7.5,
+      toppings: [
+        'Sliced jalapeno papers',
+        'Fresh garlic',
+        'Fresh ginger',
+        'Gochujang',
+        'Chili crisp',
+        'Shrimp',
+        'Ramen Egg (Ajitsuke Tamago)',
+        'Chashu – braised pork belly',
       ],
     },
   ],
