@@ -1,5 +1,5 @@
 class FooterView {
-  footerHTML(socialMedia, info, address) {
+  createMarkup(socialMedia, info, address) {
     return `
       <footer class="footer">
           <nav>

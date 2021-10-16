@@ -1,7 +1,12 @@
 class BowlView {
-  bowlsHTML(data) {
+  createMarkup(data) {
     return `
-      ${data.map(bowl => this.bowlItemHTML(bowl)).join('\n')}
+      <section class="bowls-display">
+        <h2 class="bowls-title">Ramen Bowls</h2>
+        <div class="bowl-items-wrapper">
+        ${data.map(bowl => this.bowlItemHTML(bowl)).join('\n')}
+        </div>
+      </section>  
     `;
   }
   bowlItemHTML(bowl) {

@@ -8,6 +8,7 @@
 html {
   font-size: 16px;
   box-sizing: border-box;
+  background-color: var(--dark-brown);
 }
 body {
   font-family: 'Share Tech Mono', monospace;
@@ -17,7 +18,6 @@ body {
 /*HEADER*/
 .header-wrapper {
   z-index: 1;
-  background-color: var(--dark-brown);
   height: 120vh;
   /* hero https://unsplash.com/photos/O0AsEdqEzPQ?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink*/
   background-image: url('../images/ramen-hero.jpg');
@@ -187,3 +187,21 @@ body {
   background-position: 50% 76%;
   opacity: 0.8;
 }
+
+.info-banner {
+  margin-top: 10rem;
+  height: 5rem;
+  padding: 1rem 0;
+  background-color: #a43820;
+  text-align: center;
+  color: white;
+}
+.info-banner-heading {
+  text-transform: uppercase;
+  font-size: 1.8rem;
+}
+.info-banner-address {
+  font-size: 1.2rem;
+}
+
+/* */
