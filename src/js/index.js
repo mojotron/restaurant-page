@@ -15,11 +15,13 @@ import bowlView from './views/bowl-view.js';
 import bannerView from './views/banner-view.js';
 import footerView from './views/footer-view.js';
 import mainWrapperView from './views/main-wrapper-view.js';
+import locationView from './views/location-view.js';
+import aboutView from './views/about-view.js';
 
 //initialize home page on page reload
-const init = function () {
+const homePage = function () {
   mainWrapperView.renderHTML(navBarView.createMarkup());
-  mainWrapperView.renderHTML(headerView.createAddressBannerMarkup());
+  mainWrapperView.renderHTML(headerView.createHeroMarkup());
   mainWrapperView.renderHTML(
     bowlView.createMarkup(model.state.recipes),
     'beforeend'
@@ -37,7 +39,7 @@ const init = function () {
   navBarView.addHandlerClick(true);
 };
 
-init();
+homePage();
 //
 
 dom.i2svg();

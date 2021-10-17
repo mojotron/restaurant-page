@@ -6,7 +6,7 @@ class NavBarView {
         <ul class="nav-bar-list">
           <li data-page="about" class="nav-list-item link">about</li>
           <li data-page="menu" class="nav-list-item link">menu</li>
-          <li data-page="contact" class="nav-list-item link">contact</li>
+          <li data-page="location" class="nav-list-item link">location</li>
         </ul>
         <button data-page="order" class="btn-order link">Order now</button>
       </nav>
