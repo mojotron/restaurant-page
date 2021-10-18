@@ -1,12 +1,12 @@
 class BowlView {
   createMarkup(data) {
     return `
-      <section class="bowls-display">
+      <main class="bowls-display">
         <h2 class="bowls-title">Ramen Bowls</h2>
         <div class="bowl-items-wrapper">
         ${data.map(bowl => this.bowlItemHTML(bowl)).join('\n')}
         </div>
-      </section>  
+      </main>  
     `;
   }
   bowlItemHTML(bowl) {

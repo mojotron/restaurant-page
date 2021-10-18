@@ -1,7 +1,7 @@
 class LocationView {
   createMarkup() {
     return `
-      <section class="location">
+      <main class="location">
         <h2>Location</h2>
         <p>Ul. Vice Vukova 6, 10020, Zagreb, Croatia</p>
         <p>(Arena Centar Mall, inside food court)</p>
@@ -37,7 +37,7 @@ class LocationView {
         </div>
 
         <p>Soon we will open on new locations!</p>
-      </section>
+      </main>
     `;
   }
 }

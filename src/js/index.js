@@ -2,7 +2,6 @@ import { library, dom } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-
 library.add(fas, far, fab);
 
 import '../css/reset.css';
@@ -18,28 +17,63 @@ import mainWrapperView from './views/main-wrapper-view.js';
 import locationView from './views/location-view.js';
 import aboutView from './views/about-view.js';
 
-//initialize home page on page reload
-const homePage = function () {
+const aboutPageController = function () {
+  mainWrapperView.swapAndRenderSection(
+    'header',
+    headerView.createAddressBannerMarkup()
+  );
+  mainWrapperView.swapAndRenderSection('main', aboutView.createMarkup());
+};
+
+const menuPageController = function () {
+  mainWrapperView.swapAndRenderSection(
+    'header',
+    headerView.createAddressBannerMarkup()
+  );
+  mainWrapperView.swapAndRenderSection(
+    'main',
+    bowlView.createMarkup(model.state.recipes)
+  );
+};
+
+const locationPageController = function () {
+  mainWrapperView.swapAndRenderSection(
+    'header',
+    headerView.createAddressBannerMarkup()
+  );
+  mainWrapperView.swapAndRenderSection('main', locationView.createMarkup());
+};
+
+const homePageController = function () {
+  mainWrapperView.swapAndRenderSection('header', headerView.createHeroMarkup());
+  mainWrapperView.swapAndRenderSection(
+    'main',
+    bowlView.createMarkup(model.state.recipes)
+  );
+};
+//
+const pageSwitchController = function (page) {
+  if (page === 'home') homePageController();
+  if (page === 'about') aboutPageController();
+  if (page === 'menu') menuPageController();
+  if (page === 'location') locationPageController();
+  dom.i2svg();
+};
+
+const init = function () {
   mainWrapperView.renderHTML(navBarView.createMarkup());
   mainWrapperView.renderHTML(headerView.createHeroMarkup());
-  mainWrapperView.renderHTML(
-    bowlView.createMarkup(model.state.recipes),
-    'beforeend'
-  );
-  mainWrapperView.renderHTML(bannerView.createImageBannerMarkup(), 'beforeend');
+  mainWrapperView.renderHTML(bowlView.createMarkup(model.state.recipes));
+  mainWrapperView.renderHTML(bannerView.createImageBannerMarkup());
   mainWrapperView.renderHTML(
     footerView.createMarkup(
       model.state.socialMedia,
       model.state.info,
       model.state.address
-    ),
-    'beforeend'
+    )
   );
 
-  navBarView.addHandlerClick(true);
+  navBarView.addHandlerClick(pageSwitchController);
+  dom.i2svg();
 };
-
-homePage();
-//
-
-dom.i2svg();
+init();

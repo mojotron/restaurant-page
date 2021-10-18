@@ -17,7 +17,7 @@ class NavBarView {
     document.querySelector('.nav-bar').addEventListener('click', function (e) {
       const target = e.target.closest('.link');
       if (!target) return;
-      alert(e.target.dataset.page);
+      handler(e.target.dataset.page);
     });
   }
 }

@@ -1,7 +1,7 @@
 class AboutView {
   createMarkup() {
     return `
-      <section class="about">
+      <main class="about">
         <h2>Our Story</h2>
         <p>
           While traveling through south-east asia I have eat a lot of great
@@ -11,7 +11,7 @@ class AboutView {
           restaurant here in zagreb. Our goal is simple, cooking a bowl of ramen
           to inspire you to do greatness.
         </p>
-      </section>
+      </main>
     `;
   }
 }

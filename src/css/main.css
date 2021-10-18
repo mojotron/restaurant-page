@@ -4,11 +4,12 @@
   --light-brown: #693d3d;
   --dark-orange: #a43820;
   --light-orange: #ba5536;
+  --logo-red: #9e1313;
 }
 html {
   font-size: 16px;
   box-sizing: border-box;
-  background-color: var(--dark-brown);
+  background-color: var(--light-brown);
 }
 body {
   font-family: 'Share Tech Mono', monospace;
@@ -85,7 +86,7 @@ body {
   cursor: pointer;
 }
 .btn-order:hover {
-  background-color: #a10000;
+  background-color: var(--logo-red);
 }
 /*****************************************/
 /*logo*/
@@ -94,7 +95,7 @@ body {
   width: 6rem;
   border: 3px solid black;
   border-radius: 100%;
-  background-color: #a10000;
+  background-color: var(--logo-red);
   background-image: url('../images/logo.jpeg');
   background-position: center center;
   background-size: 4rem 4rem;
@@ -193,7 +194,7 @@ body {
   margin-top: 10rem;
   padding: 2rem 0;
   height: 5rem;
-  background-color: #a43820;
+  background-color: var(--logo-red);
   text-align: center;
   color: white;
 }
@@ -208,7 +209,7 @@ body {
 
 /*about*/
 .about {
-  background-color: var(--light-brown);
+  background-color: var(--dark-orange);
   padding: 10rem 3rem 10rem;
   color: white;
   display: flex;
@@ -230,6 +231,7 @@ body {
 }
 /**/
 .location {
+  background-color: var(--light-orange);
   padding: 7rem 0;
   display: flex;
   flex-direction: column;
