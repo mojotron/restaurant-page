@@ -3,8 +3,10 @@ class LocationView {
     return `
       <main class="location">
         <h2>Location</h2>
-        <p>Ul. Vice Vukova 6, 10020, Zagreb, Croatia</p>
-        <p>(Arena Centar Mall, inside food court)</p>
+        <p>
+          We are inside the mall in the food court, order awesome bowl and
+          be inspired for greatness!
+        </p>
         <div class="mapouter">
           <div class="gmap_canvas">
             <iframe

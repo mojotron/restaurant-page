@@ -20,15 +20,18 @@ import aboutView from './views/about-view.js';
 const aboutPageController = function () {
   mainWrapperView.swapAndRenderSection(
     'header',
-    headerView.createAddressBannerMarkup()
+    headerView.createAddressBannerMarkup(model.state.info, model.state.address)
   );
-  mainWrapperView.swapAndRenderSection('main', aboutView.createMarkup());
+  mainWrapperView.swapAndRenderSection(
+    'main',
+    aboutView.createMarkup(model.state.aboutStory)
+  );
 };
 
 const menuPageController = function () {
   mainWrapperView.swapAndRenderSection(
     'header',
-    headerView.createAddressBannerMarkup()
+    headerView.createAddressBannerMarkup(model.state.info, model.state.address)
   );
   mainWrapperView.swapAndRenderSection(
     'main',
@@ -39,13 +42,16 @@ const menuPageController = function () {
 const locationPageController = function () {
   mainWrapperView.swapAndRenderSection(
     'header',
-    headerView.createAddressBannerMarkup()
+    headerView.createAddressBannerMarkup(model.state.info, model.state.address)
   );
   mainWrapperView.swapAndRenderSection('main', locationView.createMarkup());
 };
 
 const homePageController = function () {
-  mainWrapperView.swapAndRenderSection('header', headerView.createHeroMarkup());
+  mainWrapperView.swapAndRenderSection(
+    'header',
+    headerView.createHeroMarkup(model.state.info, model.state.address)
+  );
   mainWrapperView.swapAndRenderSection(
     'main',
     bowlView.createMarkup(model.state.recipes)
@@ -62,7 +68,9 @@ const pageSwitchController = function (page) {
 
 const init = function () {
   mainWrapperView.renderHTML(navBarView.createMarkup());
-  mainWrapperView.renderHTML(headerView.createHeroMarkup());
+  mainWrapperView.renderHTML(
+    headerView.createHeroMarkup(model.state.info, model.state.address)
+  );
   mainWrapperView.renderHTML(bowlView.createMarkup(model.state.recipes));
   mainWrapperView.renderHTML(bannerView.createImageBannerMarkup());
   mainWrapperView.renderHTML(
@@ -72,7 +80,7 @@ const init = function () {
       model.state.address
     )
   );
-
+  //create event listeners for navigation links
   navBarView.addHandlerClick(pageSwitchController);
   dom.i2svg();
 };

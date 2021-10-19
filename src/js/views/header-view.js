@@ -1,26 +1,21 @@
+import infoView from './info-view.js';
 class HeaderView {
-  createHeroMarkup() {
+  createHeroMarkup(address, info) {
     return `
       <header class="header-wrapper">
           <div class="header">
             <h1 class="main-heading">mojo ramen</h1>
-            <p class="heading-address">Arena Centar Mall, inside food corner</p>
-            <p class="heading-address">
-              (Ul. Vice Vukova 6, 10020, Zagreb, Croatia)
-            </p>
+            ${infoView.createMarkup(address, info)}
           </div>
       </header>
     `;
   }
 
-  createAddressBannerMarkup() {
+  createAddressBannerMarkup(address, info) {
     return `
       <header class="info-banner">
         <h3 class="info-banner-heading">Mojo Bowls</h3>
-        <p class="info-banner-address">
-          Ul. Vice Vukova 6, 10020, Zagreb, Croatia
-        </p>
-        <p class="info-banner-address">(Arena Centar Mall, inside food corner)</p>
+        ${infoView.createMarkup(address, info)}
       </header>
     `;
   }

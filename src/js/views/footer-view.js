@@ -1,3 +1,4 @@
+import infoView from './info-view.js';
 class FooterView {
   createMarkup(socialMedia, info, address) {
     return `
@@ -9,10 +10,7 @@ class FooterView {
           </nav>
           <div>
             <h2></h2>
-            <p class="heading-address">${info}</p>
-            <p class="heading-address">
-              (${address})
-            </p>
+            ${infoView.createMarkup(address, info)}
           </div>
           <button class="btn-order">Order now</button>
       </footer>
