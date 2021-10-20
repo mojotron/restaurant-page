@@ -16,6 +16,8 @@ import footerView from './views/footer-view.js';
 import mainWrapperView from './views/main-wrapper-view.js';
 import locationView from './views/location-view.js';
 import aboutView from './views/about-view.js';
+import orderFormView from './views/order-form-view.js';
+import overlayView from './views/overlay-view.js';
 
 const aboutPageController = function () {
   mainWrapperView.swapAndRenderSection(
@@ -57,12 +59,18 @@ const homePageController = function () {
     bowlView.createMarkup(model.state.recipes)
   );
 };
+
+const orderFormController = function () {
+  mainWrapperView.renderHTML(orderFormView.createMarkup(true));
+  mainWrapperView.renderHTML(overlayView.createMarkup(), 'afterend');
+};
 //
 const pageSwitchController = function (page) {
   if (page === 'home') homePageController();
   if (page === 'about') aboutPageController();
   if (page === 'menu') menuPageController();
   if (page === 'location') locationPageController();
+  if (page === 'order') orderFormController();
   dom.i2svg();
 };
 

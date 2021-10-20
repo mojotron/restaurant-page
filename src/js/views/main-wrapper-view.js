@@ -4,6 +4,7 @@ class MainWrapperView {
   clear() {
     this._parentElement.innerHTML = '';
   }
+
   renderHTML(html, position = 'beforeend') {
     this._parentElement.insertAdjacentHTML(position, html);
   }
@@ -11,6 +12,10 @@ class MainWrapperView {
   swapAndRenderSection(elementSelector, html) {
     const element = document.querySelector(elementSelector);
     element.outerHTML = html;
+  }
+
+  removeElement(elementSelector) {
+    document.querySelector(elementSelector).remove();
   }
 }
 

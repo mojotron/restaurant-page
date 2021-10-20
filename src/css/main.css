@@ -280,6 +280,10 @@ body {
 .order-item {
   display: flex;
   justify-content: space-between;
+  padding: 0.1rem 0;
+}
+input::placeholder {
+  color: #ba5536e3;
 }
 .btn-order-item:hover {
   background-color: #eee;
@@ -295,18 +299,30 @@ select,
 }
 #btn-finish-order {
   margin: 1rem auto 0;
+  padding: 0.5rem 2rem;
   width: 10rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  border-radius: 5px;
   border: none;
   font-family: inherit;
+  transition: background-color 1s;
 }
 #btn-view-cart {
   padding: 0.3rem 0.5rem;
+  border-radius: 5px;
   border: none;
   font-family: inherit;
   font-size: 1rem;
   color: var(--dark-orange);
   position: relative;
   bottom: 3px;
+  transition: background-color 1s;
+}
+#btn-finish-order:hover,
+#btn-view-cart:hover {
+  background-color: var(--logo-red);
+  color: #eee;
 }
 .overlay {
   position: fixed;
@@ -316,4 +332,7 @@ select,
   height: 100vh;
   background-color: rgba(10, 3, 3, 0.329);
   z-index: 5;
+}
+.hidden {
+  visibility: hidden;
 }
