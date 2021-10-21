@@ -1,7 +1,10 @@
 import { faCreativeCommonsPd } from '@fortawesome/free-brands-svg-icons';
 
 export const state = {
-  cart: [],
+  order: {
+    totalPrice: 0,
+    cart: [],
+  },
   restaurantName: 'mojo ramen',
   address: 'Ul. Vice Vukova 6, 10020, Zagreb, Croatia',
   info: 'Arena Centar Mall, inside food court',

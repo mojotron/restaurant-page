@@ -1,32 +1,15 @@
 class OrderFormView {
-  createMarkup(order) {
+  createMarkup(bowls, totalPrice) {
     return `
-      <div class="order-form">
+      <form class="order-form">
         <div class="order-cart">
-          <h2>Order Ramen</h2>
-          <i class="fas fa-shopping-cart"></i>
-          <p>0</p>
+        <h2>Order Ramen <i class="fas fa-shopping-cart"></i></h2>
+          
+          <p><span class="order-total-price">${totalPrice}</span>€</p>
           <button id="btn-view-cart">View cart</button>
         </div>
         <ul>
-          <li class="order-item">
-            <span>Bowl of Miso Ramen</span>
-            <button class="btn-order-item">
-              <i class="fas fa-cart-arrow-down"></i>
-            </button>
-          </li>
-          <li class="order-item">
-            <span>Bowl of Miso Ramen</span>
-            <button class="btn-order-item">
-              <i class="fas fa-cart-arrow-down"></i>
-            </button>
-          </li>
-          <li class="order-item">
-            <span>Bowl of Miso Ramen</span>
-            <button class="btn-order-item">
-              <i class="fas fa-cart-arrow-down"></i>
-            </button>
-          </li>
+          ${this.createBowlListItemMarkup(bowls)}
         </ul>
         <label for="order-name">Customer Name</label>
         <input type="text" id="order-name" placeholder="John Dow" />
@@ -40,7 +23,7 @@ class OrderFormView {
           id="order-address"
           placeholder="Street, number, floor, apartment"
         />
-        <label for="order-paymant">Payment</label>
+        <label for="order-payment">Payment</label>
         <select>
           <option>-- payment method --</option>
           <option value="">cash on delivery</option>
@@ -48,15 +31,39 @@ class OrderFormView {
           <option value="">coupon</option>
         </select>
         <button id="btn-finish-order">Order</button>
-      </div>
+      </form>
     `;
   }
 
-  createBowlsListMarkup(order) {
-    return order.map(item => {}).join('\n');
+  createBowlListItemMarkup(data) {
+    return data
+      .map(item => {
+        return `
+        <li class="order-item">
+          <span>${item.title} Ramen ${item.price}€</span>
+          <button class="btn-order-item" data-order-item="${item.title}">
+            <i class="fas fa-cart-arrow-down"></i>
+          </button>
+        </li>
+      `;
+      })
+      .join('\n');
   }
 
-  addToCartClickHandler(handler) {}
+  addItemToCardHandler(handler) {
+    document
+      .querySelector('.order-form ul')
+      .addEventListener('click', function (e) {
+        e.preventDefault(); //button in form
+        const btn = e.target.closest('.btn-order-item');
+        if (!btn) return;
+        handler(btn.dataset.orderItem);
+      });
+  }
+
+  updateTotalPriceMarkup(value) {
+    document.querySelector('.order-total-price').textContent = value.toFixed(2);
+  }
 }
 
 export default new OrderFormView();

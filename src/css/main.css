@@ -336,3 +336,16 @@ select,
 .hidden {
   visibility: hidden;
 }
+
+.view-current-cart {
+  position: fixed;
+  top: 20%;
+  right: 21.9rem;
+  transform: translateY(-50%);
+  width: 20rem;
+  min-height: 5rem;
+  max-height: 15rem;
+  overflow: hidden;
+  background-color: #eee;
+  z-index: 10;
+}

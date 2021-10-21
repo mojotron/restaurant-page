@@ -18,6 +18,7 @@ import locationView from './views/location-view.js';
 import aboutView from './views/about-view.js';
 import orderFormView from './views/order-form-view.js';
 import overlayView from './views/overlay-view.js';
+import cartView from './views/cart-view.js';
 
 const aboutPageController = function () {
   mainWrapperView.swapAndRenderSection(
@@ -61,8 +62,25 @@ const homePageController = function () {
 };
 
 const orderFormController = function () {
-  mainWrapperView.renderHTML(orderFormView.createMarkup(true));
+  mainWrapperView.renderHTML(
+    orderFormView.createMarkup(
+      model.state.recipes,
+      model.state.order.totalPrice
+    )
+  );
   mainWrapperView.renderHTML(overlayView.createMarkup(), 'afterend');
+  orderFormView.addItemToCardHandler(addToCartController);
+};
+
+const addToCartController = function (bowlName) {
+  //get item
+  const bowl = model.state.recipes.find(item => item.title === bowlName);
+  //add item to cart
+  model.state.order.cart.push(bowl);
+  //add price to total
+  model.state.order.totalPrice += bowl.price;
+  //update display on total price
+  orderFormView.updateTotalPriceMarkup(model.state.order.totalPrice);
 };
 //
 const pageSwitchController = function (page) {
