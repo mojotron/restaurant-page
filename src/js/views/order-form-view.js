@@ -4,7 +4,6 @@ class OrderFormView {
       <form class="order-form">
         <div class="order-cart">
         <h2>Order Ramen <i class="fas fa-shopping-cart"></i></h2>
-          
           <p><span class="order-total-price">${totalPrice}</span>€</p>
           <button id="btn-view-cart">View cart</button>
         </div>
@@ -58,6 +57,15 @@ class OrderFormView {
         const btn = e.target.closest('.btn-order-item');
         if (!btn) return;
         handler(btn.dataset.orderItem);
+      });
+  }
+
+  addViewCartHandler(handler) {
+    document
+      .querySelector('#btn-view-cart')
+      .addEventListener('click', function (e) {
+        e.preventDefault();
+        handler();
       });
   }
 

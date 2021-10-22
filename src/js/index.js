@@ -69,7 +69,9 @@ const orderFormController = function () {
     )
   );
   mainWrapperView.renderHTML(overlayView.createMarkup(), 'afterend');
+  //btn handlers
   orderFormView.addItemToCardHandler(addToCartController);
+  orderFormView.addViewCartHandler(displayCartController);
 };
 
 const addToCartController = function (bowlName) {
@@ -81,6 +83,23 @@ const addToCartController = function (bowlName) {
   model.state.order.totalPrice += bowl.price;
   //update display on total price
   orderFormView.updateTotalPriceMarkup(model.state.order.totalPrice);
+  updateCartDisplay();
+};
+const updateCartDisplay = function () {
+  if (!mainWrapperView.elementExist('.view-current-cart')) return;
+  mainWrapperView.swapAndRenderSection(
+    '.view-current-cart',
+    cartView.createMarkup(model.state.order.cart)
+  );
+  dom.i2svg();
+};
+const displayCartController = function () {
+  if (mainWrapperView.elementExist('.view-current-cart')) {
+    mainWrapperView.removeElement('.view-current-cart');
+    return;
+  }
+  mainWrapperView.renderHTML(cartView.createMarkup(model.state.order.cart));
+  dom.i2svg();
 };
 //
 const pageSwitchController = function (page) {

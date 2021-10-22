@@ -15,7 +15,12 @@ class MainWrapperView {
   }
 
   removeElement(elementSelector) {
-    document.querySelector(elementSelector).remove();
+    const target = document.querySelector(elementSelector);
+    target.remove();
+  }
+
+  elementExist(elementSelector) {
+    return !!document.querySelector(elementSelector);
   }
 }
 

@@ -339,13 +339,40 @@ select,
 
 .view-current-cart {
   position: fixed;
-  top: 20%;
+  top: 25%;
   right: 21.9rem;
   transform: translateY(-50%);
   width: 20rem;
   min-height: 5rem;
   max-height: 15rem;
-  overflow: hidden;
+  overflow: scroll;
   background-color: #eee;
   z-index: 10;
+  border-radius: 5px;
+  border: 2px solid var(--light-orange);
+  box-sizing: border-box;
+}
+.cart-item {
+  color: #eee;
+  width: 90%;
+  margin: 0.3rem auto;
+  padding: 0.2rem 0.3rem;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 2px solid var(--light-brown);
+  background-color: var(--light-orange);
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart-item-remove {
+  border: none;
+  background: none;
+  color: #eee;
+  font-size: 1.2rem;
+  transition: color 1s;
+}
+.cart-item-remove:hover {
+  color: var(--logo-red);
 }
