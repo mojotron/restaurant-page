@@ -11,13 +11,14 @@ class OrderFormView {
           ${this.createBowlListItemMarkup(bowls)}
         </ul>
         <label for="order-name">Customer Name</label>
-        <input type="text" id="order-name" placeholder="John Dow" />
+        <input required type="text" id="order-name" placeholder="John Dow" />
         <label for="order-phone">Phone number</label>
-        <input type="text" id="order-phone" placeholder="123 456 789" />
+        <input required type="text" id="order-phone" placeholder="123 456 789" />
         <label for="order-email">Email</label>
-        <input type="text" id="order-email" placeholder="example@mail.com" />
+        <input required type="text" id="order-email" placeholder="example@mail.com" />
         <label for="order-address">Delivery Address</label>
         <input
+          required
           type="text"
           id="order-address"
           placeholder="Street, number, floor, apartment"
@@ -29,7 +30,7 @@ class OrderFormView {
           <option value="">bank card</option>
           <option value="">coupon</option>
         </select>
-        <button id="btn-finish-order">Order</button>
+        <button id="btn-finish-order">Submit</button>
       </form>
     `;
   }
@@ -65,6 +66,14 @@ class OrderFormView {
       .querySelector('#btn-view-cart')
       .addEventListener('click', function (e) {
         e.preventDefault();
+        handler();
+      });
+  }
+
+  addSubmitOrderHandler(handler) {
+    document
+      .getElementById('btn-finish-order')
+      .addEventListener('click', function (e) {
         handler();
       });
   }

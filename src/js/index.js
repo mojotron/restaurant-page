@@ -72,6 +72,15 @@ const orderFormController = function () {
   //btn handlers
   orderFormView.addItemToCardHandler(addToCartController);
   orderFormView.addViewCartHandler(displayCartController);
+  overlayView.addOverlayHandler(addOverlayController);
+  orderFormView.addSubmitOrderHandler(submitFormHandler);
+};
+
+const addOverlayController = function () {
+  mainWrapperView.removeElement('.order-form');
+  mainWrapperView.removeElement('.overlay');
+  if (mainWrapperView.elementExist('.view-current-cart'))
+    mainWrapperView.removeElement('.view-current-cart');
 };
 
 const addToCartController = function (bowlName) {
@@ -91,6 +100,7 @@ const updateCartDisplay = function () {
     '.view-current-cart',
     cartView.createMarkup(model.state.order.cart)
   );
+  cartView.addRemoveItemHandler(addRemoveCartItemController);
   dom.i2svg();
 };
 const displayCartController = function () {
@@ -99,8 +109,19 @@ const displayCartController = function () {
     return;
   }
   mainWrapperView.renderHTML(cartView.createMarkup(model.state.order.cart));
+  cartView.addRemoveItemHandler(addRemoveCartItemController);
   dom.i2svg();
 };
+
+const addRemoveCartItemController = function (data) {
+  const bowl = model.state.order.cart.splice(data, 1);
+  console.log(bowl);
+  model.state.order.totalPrice -= bowl[0].price;
+  orderFormView.updateTotalPriceMarkup(model.state.order.totalPrice);
+  updateCartDisplay();
+};
+
+const submitFormHandler = function () {};
 //
 const pageSwitchController = function (page) {
   if (page === 'home') homePageController();
