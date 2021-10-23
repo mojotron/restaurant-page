@@ -121,7 +121,32 @@ const addRemoveCartItemController = function (data) {
   updateCartDisplay();
 };
 
-const submitFormHandler = function () {};
+const submitFormHandler = function () {
+  //check if cart empty
+  if (model.state.order.cart.length === 0) {
+    alert('Cart is empty!');
+    return;
+  }
+  //check are input
+  const emptyInput = orderFormView.checkEmptyInput();
+  if (emptyInput) {
+    alert(emptyInput);
+    return;
+  }
+  const paymentMethod = orderFormView.checkPaymentInput();
+  if (paymentMethod) {
+    alert(paymentMethod);
+    return;
+  }
+  //close modals
+  mainWrapperView.removeElement('.order-form');
+  mainWrapperView.removeElement('.overlay');
+  if (mainWrapperView.elementExist('.view-current-cart'))
+    mainWrapperView.removeElement('.view-current-cart');
+  //reset order data
+  model.state.order.cart = [];
+  model.state.order.totalPrice = 0;
+};
 //
 const pageSwitchController = function (page) {
   if (page === 'home') homePageController();

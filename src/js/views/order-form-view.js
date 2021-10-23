@@ -24,11 +24,11 @@ class OrderFormView {
           placeholder="Street, number, floor, apartment"
         />
         <label for="order-payment">Payment</label>
-        <select>
-          <option>-- payment method --</option>
-          <option value="">cash on delivery</option>
-          <option value="">bank card</option>
-          <option value="">coupon</option>
+        <select id="order-payment-method">
+          <option value="_">-- payment method --</option>
+          <option>cash on delivery</option>
+          <option>bank card</option>
+          <option>coupon</option>
         </select>
         <button id="btn-finish-order">Submit</button>
       </form>
@@ -70,10 +70,35 @@ class OrderFormView {
       });
   }
 
+  checkEmptyInput() {
+    //this function is for DOM learning purpose
+    const inputs = document
+      .querySelector('.order-form')
+      .querySelectorAll('input');
+    const empty = Array.from(inputs).find(ele => ele.value === '');
+    if (!empty) return;
+    const label = document.querySelector(`[for="${empty.id}"]`);
+    const message = `Please fill ${label.textContent} field!`;
+    return message;
+  }
+
+  checkPaymentInput() {
+    const method = document.querySelector('#order-payment-method');
+    if (method.value === '_') return 'Please choose payment method!';
+  }
+
+  clearInputs() {
+    document
+      .querySelector('.order-form')
+      .querySelectorAll('input')
+      .forEach(ele => (ele.value = ''));
+  }
+
   addSubmitOrderHandler(handler) {
     document
       .getElementById('btn-finish-order')
       .addEventListener('click', function (e) {
+        e.preventDefault();
         handler();
       });
   }
