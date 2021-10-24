@@ -23,6 +23,12 @@ class FooterView {
       })
       .join('\n');
   }
+
+  addOrderBtnHandler(handler) {
+    document
+      .querySelector('footer .btn-order')
+      .addEventListener('click', handler);
+  }
 }
 
 export default new FooterView();

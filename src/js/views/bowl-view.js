@@ -4,10 +4,13 @@ class BowlView {
       <main class="bowls-display">
         <h2 class="bowls-title">Ramen Bowls</h2>
         <div class="bowl-items-wrapper">
-        ${data.map(bowl => this.bowlItemHTML(bowl)).join('\n')}
+        ${this.allBowlsHTML(data)}
         </div>
       </main>  
     `;
+  }
+  allBowlsHTML(data) {
+    return data.map(bowl => this.bowlItemHTML(bowl)).join('\n');
   }
   bowlItemHTML(bowl) {
     return `

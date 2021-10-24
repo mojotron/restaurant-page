@@ -22,6 +22,10 @@ class MainWrapperView {
   elementExist(elementSelector) {
     return !!document.querySelector(elementSelector);
   }
+
+  alertMessage(message) {
+    alert(message);
+  }
 }
 
 export default new MainWrapperView();

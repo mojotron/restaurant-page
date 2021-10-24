@@ -7,6 +7,15 @@ library.add(fas, far, fab);
 import '../css/reset.css';
 import '../css/main.css';
 
+import {
+  HEADER_SELECTOR,
+  MAIN_SELECTOR,
+  OVERLAY_SELECTOR,
+  FORM_SELECTOR,
+  CART_SELECTOR,
+  EMPTY_CART_MESSAGE,
+} from './config.js';
+
 import * as model from './model.js';
 import navBarView from './views/nav-bar-view.js';
 import headerView from './views/header-view.js';
@@ -22,41 +31,44 @@ import cartView from './views/cart-view.js';
 
 const aboutPageController = function () {
   mainWrapperView.swapAndRenderSection(
-    'header',
+    HEADER_SELECTOR,
     headerView.createAddressBannerMarkup(model.state.info, model.state.address)
   );
   mainWrapperView.swapAndRenderSection(
-    'main',
+    MAIN_SELECTOR,
     aboutView.createMarkup(model.state.aboutStory)
   );
 };
 
 const menuPageController = function () {
   mainWrapperView.swapAndRenderSection(
-    'header',
+    HEADER_SELECTOR,
     headerView.createAddressBannerMarkup(model.state.info, model.state.address)
   );
   mainWrapperView.swapAndRenderSection(
-    'main',
+    MAIN_SELECTOR,
     bowlView.createMarkup(model.state.recipes)
   );
 };
 
 const locationPageController = function () {
   mainWrapperView.swapAndRenderSection(
-    'header',
+    HEADER_SELECTOR,
     headerView.createAddressBannerMarkup(model.state.info, model.state.address)
   );
-  mainWrapperView.swapAndRenderSection('main', locationView.createMarkup());
+  mainWrapperView.swapAndRenderSection(
+    MAIN_SELECTOR,
+    locationView.createMarkup()
+  );
 };
 
 const homePageController = function () {
   mainWrapperView.swapAndRenderSection(
-    'header',
+    HEADER_SELECTOR,
     headerView.createHeroMarkup(model.state.info, model.state.address)
   );
   mainWrapperView.swapAndRenderSection(
-    'main',
+    MAIN_SELECTOR,
     bowlView.createMarkup(model.state.recipes)
   );
 };
@@ -77,10 +89,10 @@ const orderFormController = function () {
 };
 
 const addOverlayController = function () {
-  mainWrapperView.removeElement('.order-form');
-  mainWrapperView.removeElement('.overlay');
-  if (mainWrapperView.elementExist('.view-current-cart'))
-    mainWrapperView.removeElement('.view-current-cart');
+  mainWrapperView.removeElement(FORM_SELECTOR);
+  mainWrapperView.removeElement(OVERLAY_SELECTOR);
+  if (mainWrapperView.elementExist(CART_SELECTOR))
+    mainWrapperView.removeElement(CART_SELECTOR);
 };
 
 const addToCartController = function (bowlName) {
@@ -95,17 +107,17 @@ const addToCartController = function (bowlName) {
   updateCartDisplay();
 };
 const updateCartDisplay = function () {
-  if (!mainWrapperView.elementExist('.view-current-cart')) return;
+  if (!mainWrapperView.elementExist(CART_SELECTOR)) return;
   mainWrapperView.swapAndRenderSection(
-    '.view-current-cart',
+    CART_SELECTOR,
     cartView.createMarkup(model.state.order.cart)
   );
   cartView.addRemoveItemHandler(addRemoveCartItemController);
   dom.i2svg();
 };
 const displayCartController = function () {
-  if (mainWrapperView.elementExist('.view-current-cart')) {
-    mainWrapperView.removeElement('.view-current-cart');
+  if (mainWrapperView.elementExist(CART_SELECTOR)) {
+    mainWrapperView.removeElement(CART_SELECTOR);
     return;
   }
   mainWrapperView.renderHTML(cartView.createMarkup(model.state.order.cart));
@@ -115,7 +127,6 @@ const displayCartController = function () {
 
 const addRemoveCartItemController = function (data) {
   const bowl = model.state.order.cart.splice(data, 1);
-  console.log(bowl);
   model.state.order.totalPrice -= bowl[0].price;
   orderFormView.updateTotalPriceMarkup(model.state.order.totalPrice);
   updateCartDisplay();
@@ -124,25 +135,22 @@ const addRemoveCartItemController = function (data) {
 const submitFormHandler = function () {
   //check if cart empty
   if (model.state.order.cart.length === 0) {
-    alert('Cart is empty!');
+    mainWrapperView.alertMessage(EMPTY_CART_MESSAGE);
     return;
   }
   //check are input
   const emptyInput = orderFormView.checkEmptyInput();
   if (emptyInput) {
-    alert(emptyInput);
+    mainWrapperView.alertMessage(emptyInput);
     return;
   }
   const paymentMethod = orderFormView.checkPaymentInput();
   if (paymentMethod) {
-    alert(paymentMethod);
+    mainWrapperView.alertMessage(paymentMethod);
     return;
   }
   //close modals
-  mainWrapperView.removeElement('.order-form');
-  mainWrapperView.removeElement('.overlay');
-  if (mainWrapperView.elementExist('.view-current-cart'))
-    mainWrapperView.removeElement('.view-current-cart');
+  addOverlayController();
   //reset order data
   model.state.order.cart = [];
   model.state.order.totalPrice = 0;
@@ -173,6 +181,7 @@ const init = function () {
   );
   //create event listeners for navigation links
   navBarView.addHandlerClick(pageSwitchController);
+  footerView.addOrderBtnHandler(orderFormController);
   dom.i2svg();
 };
 init();

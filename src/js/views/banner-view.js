@@ -1,8 +1,6 @@
 class BannerView {
   createImageBannerMarkup() {
-    return `
-      <section class="banner"></section> 
-    `;
+    return `<section class="banner"></section> `;
   }
 }
 

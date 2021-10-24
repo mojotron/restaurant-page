@@ -1,8 +1,6 @@
 class OverlayView {
   createMarkup() {
-    return `
-      <div class="overlay"></div>
-    `;
+    return `<div class="overlay"></div>`;
   }
 
   addOverlayHandler(handler) {
