@@ -7,7 +7,7 @@ const { resolve } = require('path');
 module.exports = merge(common, {
   mode: 'production',
   output: {
-    filename: 'main.[contenthash].js',
+    filename: '[name].[contenthash].js',
     path: resolve(__dirname, 'dist'),
     clean: true,
   },

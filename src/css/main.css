@@ -41,7 +41,7 @@ button {
   z-index: 1;
   height: 120vh;
   /* hero https://unsplash.com/photos/O0AsEdqEzPQ?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink*/
-  background-image: url('../images/ramen-hero.jpg');
+  background-image: url('../images/ramen-hero-small.jpg');
   background-size: cover;
   background-position: center center;
   margin-top: -2rem;
@@ -197,7 +197,7 @@ button {
   height: 15rem;
   background-color: var(--dark-brown);
   /*https://unsplash.com/photos/JCHlsKSgbSk?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink*/
-  background-image: url('../images/ramen-kitchen.jpg');
+  background-image: url('../images/ramen-kitchen-small.jpg');
   background-size: cover;
   background-position: 50% 76%;
   opacity: 0.5;

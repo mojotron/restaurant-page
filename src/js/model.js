@@ -11,12 +11,12 @@ export const state = {
   info: 'Arena Centar Mall, inside food court',
   socialMedia: ['instagram', 'twitter', 'facebook'],
   aboutStory: `
-    While traveling through south-east asia I have eat a lot of great
+    While traveling through south-east Asia, I have eaten many great
     dishes. But one bowl of ramen in Singapore food court mesmerized me.
-    Then and there i started my journey to master cooking ramen, and after 6
-    years of learning and mastering i returned home and open my own small
-    restaurant here in zagreb. Our goal is simple, cooking a bowl of ramen
-    to inspire you to do greatness.
+    Then and there I started my journey to master cooking ramen. After 6
+    years of learning and mastering, I returned home and opened my own small
+    restaurant here in Zagreb. Our goal is simple, preparing a bowl of ramen
+    that will inspire you to do greatness.
   `,
   recipes: bowlsArray,
 };

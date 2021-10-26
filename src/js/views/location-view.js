@@ -4,7 +4,7 @@ class LocationView {
       <main class="location">
         <h2>Location</h2>
         <p>
-          We are inside the mall in the food court, order awesome bowl and
+          We are located inside the mall in the food court. Order our awesome bowl and
           be inspired for greatness!
         </p>
         <div class="mapouter">
